@@ -10,10 +10,16 @@ class RingBuffer:
             self.buffer.append(item)
         # If there is no spot in the ring
         else:
-            if len(self.buffer) == self.capacity:
-               self.index
+            self.buffer[self.index] = item
+            self.index += 1
 
+        if self.index == self.capacity:
+            self.index = 0
 
 
     def get(self):
-        pass
+        final = []
+        for item in self.buffer:
+            final.append(item)
+
+        return final
